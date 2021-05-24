@@ -1,7 +1,7 @@
-import math
+import math # importamos la librería math para acceder a las funciones como seno, coseno, tangente, etc
 
 while(True):
-	numeroIngresado = float(input("Ingresar número para cálculo: "))
+	numeroIngresado = float(input("Ingresar número para cálculo: ")) # solicitamos el ingreso de un número, y lo convertimos a coma flotante
 	if (numeroIngresado == 0):
 		break
 	else:
@@ -13,6 +13,8 @@ while(True):
 		print("5 - Raíz cuadrada")
 		operacion = input("Seleccionar operación: ")
 
+		# Solo evaluamos en orden si la operación ingresada está entre 1 y 5
+		# Si es así, ejecutamos el cálculo correspondiente, caso contrario generamos mensaje de error
 		if (operacion == "1"):
 			print(math.sin(numeroIngresado))
 		elif (operacion == "2"):
