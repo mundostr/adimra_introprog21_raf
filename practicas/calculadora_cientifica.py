@@ -5,7 +5,7 @@ while(True):
 	if (numeroIngresado == 0):
 		break
 	else:
-		print("OPERACIONES DISPONIBLES")
+		print("OPERACIONES DISPONIBLES PARA CALCULO")
 		print("1- Seno")
 		print("2 - Coseno")
 		print("3 - Tangente")
