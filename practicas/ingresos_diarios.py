@@ -8,14 +8,13 @@ SEMESTRE1 = 183
 SEMESTRE2 = 182
 INGRESO_ALTO = 8000
 
-ingresosTotales = 0
 ingresosSemestre1 = 0
 ingresosSemestre2 = 0
 promedioSemestre1 = 0
 promedioSemestre2 = 0
 promedioGeneral = 0
-diasAltoIngreso = 0
 porcDiasAltoIngreso = 0
+diasAltoIngreso = 0
 
 
 # FUNCIONES
@@ -35,6 +34,24 @@ def cargarDatosIntDesdeArchivo(ruta):
 	# Finalmente la función "devuelve" la lista convertida
 	return lectura
 
+def procesarCalculos():
+	global ingresosSemestre1, ingresosSemestre2, diasAltoIngreso
+	global promedioSemestre1, promedioSemestre2, promedioGeneral, porcDiasAltoIngreso
+	
+	for indice, item in enumerate(listaIngresos):
+		if (indice < SEMESTRE1):
+			ingresosSemestre1 = ingresosSemestre1 + item
+		else:
+			ingresosSemestre2 = ingresosSemestre2 + item
+		
+		if (item >= INGRESO_ALTO):
+			diasAltoIngreso = diasAltoIngreso + 1
+
+	promedioSemestre1 = int(ingresosSemestre1 / SEMESTRE1)
+	promedioSemestre2 = int(ingresosSemestre2 / SEMESTRE2)
+	promedioGeneral = (promedioSemestre1 + promedioSemestre2) / 2
+	porcDiasAltoIngreso = int((diasAltoIngreso / ANIO) * 100)
+
 
 # BLOQUE CENTRAL
 # Llamamos a la función cargarDatosIntDesdeArchivo(), pasándole un argumento que
@@ -42,28 +59,10 @@ def cargarDatosIntDesdeArchivo(ruta):
 # La función nos "devolverá" una lista de enteros que asignaremos a listaIngresos
 listaIngresos = cargarDatosIntDesdeArchivo("ingresos_diarios_2020.txt")
 
-# Cálculos requeridos
-# Utilizamos 3 veces un ciclo for(), para iterar listaIngresos y realizar
-# los diferentes cálculos. Intentar compactar este proceso en un único for()
-# y encapsular también en una función, para mayor orden.
-for indice, item in enumerate(listaIngresos):
-	if (indice < SEMESTRE1):
-		ingresosSemestre1 = ingresosSemestre1 + item
-promedioSemestre1 = int(ingresosSemestre1 / SEMESTRE1)
+# Ejemplo alcance de variables (Scope)
+procesarCalculos()
 
-for indice, item in enumerate(listaIngresos):
-	if (indice >= SEMESTRE1 and indice < ANIO):
-		ingresosSemestre2 = ingresosSemestre2 + item
-promedioSemestre2 = int(ingresosSemestre2 / SEMESTRE2)
-
-promedioGeneral = (promedioSemestre1 + promedioSemestre2) / 2
-
-for indice, item in enumerate(listaIngresos):
-	if (item >= INGRESO_ALTO):
-		diasAltoIngreso = diasAltoIngreso + 1
-porcDiasAltoIngreso = int((diasAltoIngreso / ANIO) * 100)
-
-# Salida de información
+# SALIDAS
 # Repasamos 4 alternativas para mostrar datos por consola o formatearlos para futuro uso.
 # Para desarrollo y depuración, podemos aplicar simplemente la opción "plana", imprimiendo
 # el / los nombres de variables que necesitamos. Si debemos imprimir varios en una misma línea,
