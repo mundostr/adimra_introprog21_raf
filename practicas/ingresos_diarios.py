@@ -63,25 +63,5 @@ listaIngresos = cargarDatosIntDesdeArchivo("ingresos_diarios_2020.txt")
 procesarCalculos()
 
 # SALIDAS
-# Repasamos 4 alternativas para mostrar datos por consola o formatearlos para futuro uso.
-# Para desarrollo y depuración, podemos aplicar simplemente la opción "plana", imprimiendo
-# el / los nombres de variables que necesitamos. Si debemos imprimir varios en una misma línea,
-# solo los separamos por comas -> print(promedioSemestre1, promedioSemestre2, etc)
-print(promedioSemestre1)
-
-# Esta es otra variante, del lado izquierdo colocamos un "título", y luego las variables a mostrar,
-# con la misma idea del caso anterior. Si es más de una, separaremos por comas.
-print("Promedio diario 2do semestre:", promedioSemestre2)
-
-# En este caso estamos formando un texto único, "concatenando" 3 "eslabones" mediante el signo +.
-# Lógicamente las partes que ya sean cadenas se escriben de forma directa, y las que no, se
-# convierten utilizando la función str(), caso contrario el intérprete generará un error al
-# momento de evaluar el comando.
-print("Promedio diario general: $ " + str(promedioGeneral) + " AR")
-
-# Esta alternativa es más actual y "limpia", porque no necesitamos realizar el casting, es decir
-# las conversiones a cadena. Tan solo armamos un único texto del lado izquierdo, con "placeholders".
-# En este caso los placeholders se especifican con llaves y un índice, comenzando en 0. Si en la
-# cadena se desea colocar 3 variables, los placeholders serán {0}, {1} y {2}, y en forma()
-# listaremos las variables separadas por comas.
+print("Promedio diario semestre 1, 2 y general: $ {0} AR | $ {1} AR | $ {2} AR".format(promedioSemestre1, promedioSemestre2, promedioGeneral))
 print("Porcentaje días con alto ingreso: {0} %".format(porcDiasAltoIngreso))
