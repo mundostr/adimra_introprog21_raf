@@ -8,13 +8,13 @@ SEMESTRE1 = 183
 SEMESTRE2 = 182
 INGRESO_ALTO = 8000
 
-ingresosSemestre1 = 0
-ingresosSemestre2 = 0
-promedioSemestre1 = 0
-promedioSemestre2 = 0
-promedioGeneral = 0
-porcDiasAltoIngreso = 0
-diasAltoIngreso = 0
+# ingresosSemestre1 = 0
+# ingresosSemestre2 = 0
+# diasAltoIngreso = 0
+# promedioGeneral = 0
+# cpromedioSemestre1 = 0
+# promedioSemestre2 = 0
+# porcDiasAltoIngreso = 0
 
 
 # FUNCIONES
@@ -35,8 +35,12 @@ def cargarDatosIntDesdeArchivo(ruta):
 	return lectura
 
 def procesarCalculos():
-	global ingresosSemestre1, ingresosSemestre2, diasAltoIngreso
-	global promedioSemestre1, promedioSemestre2, promedioGeneral, porcDiasAltoIngreso
+	# global ingresosSemestre1, ingresosSemestre2, diasAltoIngreso
+	# global promedioSemestre1, promedioSemestre2, promedioGeneral, porcDiasAltoIngreso
+
+	ingresosSemestre1 = 0
+	ingresosSemestre2 = 0
+	diasAltoIngreso = 0
 	
 	for indice, item in enumerate(listaIngresos):
 		if (indice < SEMESTRE1):
@@ -52,6 +56,8 @@ def procesarCalculos():
 	promedioGeneral = (promedioSemestre1 + promedioSemestre2) / 2
 	porcDiasAltoIngreso = int((diasAltoIngreso / ANIO) * 100)
 
+	return promedioSemestre1, promedioSemestre2, promedioGeneral, porcDiasAltoIngreso
+
 
 # BLOQUE CENTRAL
 # Llamamos a la función cargarDatosIntDesdeArchivo(), pasándole un argumento que
@@ -60,8 +66,8 @@ def procesarCalculos():
 listaIngresos = cargarDatosIntDesdeArchivo("ingresos_diarios_2020.txt")
 
 # Ejemplo alcance de variables (Scope)
-procesarCalculos()
+ps1, ps2, pg, dai = procesarCalculos()
 
 # SALIDAS
-print("Promedio diario semestre 1, 2 y general: $ {0} AR | $ {1} AR | $ {2} AR".format(promedioSemestre1, promedioSemestre2, promedioGeneral))
-print("Porcentaje días con alto ingreso: {0} %".format(porcDiasAltoIngreso))
+print("Promedio diario semestre 1, 2 y general: $ {0} AR | $ {1} AR | $ {2} AR".format(ps1, ps2, pg))
+print("Porcentaje días con alto ingreso: {0} %".format(dai))
