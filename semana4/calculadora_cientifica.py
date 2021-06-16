@@ -1,5 +1,7 @@
-import math # importamos la librería math para acceder a las funciones como seno, coseno, tangente, etc
+# importamos la librería math para acceder a las funciones como seno, coseno, tangente, etc
+import math
 
+# Activamos un ciclo indefinido, que se rompe solo al ingresar 0 en numeroIngresado
 while(True):
 	numeroIngresado = float(input("Ingresar número para cálculo: ")) # solicitamos el ingreso de un número, y lo convertimos a coma flotante
 	if (numeroIngresado == 0):

@@ -1,13 +1,16 @@
 # DEFINICIONES
 # Simplemente por orden, declaramos algunas constantes y variables generales al inicio
 # Recordar que Python no cuenta con un comando para declarar constantes, básicamente todos
-# los elementos son considerados variables, por esa razón elegimos utilizar nomenclatura
-# en MAYUSCULAS que nos permita ubicar fácilmente las constantes de forma visual.
+# los elementos son considerados variables desde el momento en el cual se inicializan,
+# por esa razón elegimos utilizar nomenclatura en MAYUSCULAS que nos permite ubicar fácilmente
+# las constantes de manera visual.
 ANIO = 365
 SEMESTRE1 = 183
 SEMESTRE2 = 182
 INGRESO_ALTO = 8000
 
+# Si no utilizamos la alternativa de retorno de valores múltiples en procesarCalculos,
+# deberemos declarar algunas variables globales que nos permitan guardar los cálculos generales.
 # ingresosSemestre1 = 0
 # ingresosSemestre2 = 0
 # diasAltoIngreso = 0
@@ -42,6 +45,8 @@ def procesarCalculos():
 	ingresosSemestre2 = 0
 	diasAltoIngreso = 0
 	
+	# Utilizamos un único for() para iterar listaIngresos y contabilizar 1er semestre,
+	# 2do semestre y días de alto ingreso
 	for indice, item in enumerate(listaIngresos):
 		if (indice < SEMESTRE1):
 			ingresosSemestre1 = ingresosSemestre1 + item
@@ -56,6 +61,10 @@ def procesarCalculos():
 	promedioGeneral = (promedioSemestre1 + promedioSemestre2) / 2
 	porcDiasAltoIngreso = int((diasAltoIngreso / ANIO) * 100)
 
+	# Realizados los 4 cálculos, simplemente los retornamos como resultado de la función
+	# Si no utilizáramos retorno de valor/es, deberíamos trabajar con variables globales,
+	# indicando su uso mediante el comando global, como se puede ver en las primeras líneas
+	# comentadas al principio de la función
 	return promedioSemestre1, promedioSemestre2, promedioGeneral, porcDiasAltoIngreso
 
 
@@ -65,9 +74,12 @@ def procesarCalculos():
 # La función nos "devolverá" una lista de enteros que asignaremos a listaIngresos
 listaIngresos = cargarDatosIntDesdeArchivo("ingresos_diarios_2020.txt")
 
-# Ejemplo alcance de variables (Scope)
+# Aprovechando que las funciones de Python pueden retornar más de un valor, configuramos procesarCalculos
+# para retornar los 4 cálculos y los asignamos aquí a variables
 ps1, ps2, pg, dai = procesarCalculos()
 
-# SALIDAS
+# Aquí generamos simplemente salidas por consola para verificar el funcionamiento,
+# aprovechando format() para formatear de manera cómoda los textos. También podríamos
+# utilizar la macro f, para generar un código aún más compacto (revisar cheatsheet).
 print("Promedio diario semestre 1, 2 y general: $ {0} AR | $ {1} AR | $ {2} AR".format(ps1, ps2, pg))
 print("Porcentaje días con alto ingreso: {0} %".format(dai))

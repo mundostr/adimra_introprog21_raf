@@ -12,6 +12,7 @@ for intentos in range(MAX_INTENTOS): # solo permitimos MAX_INTENTOS intentos
 	else:
 		print("Clave incorrecta")
 
+# De acuerdo a cómo haya quedado "usuarioValidado", si en verdadero o en falso, mostramos mensaje
 if(usuarioValidado == True):
 	print("SISTEMA OK")
 else:
