@@ -1,0 +1,12 @@
+{
+	"pais": "Argentina",
+	"provincia": "Santa Fe",
+	"ciudad": "Rafaela",
+	"hoy": {
+		"minima": "10.0",
+		"maxima": "17.3",
+		"actual": "14.1",
+		"humedad": "48",
+		"presion": "1019.3"
+	}
+}
