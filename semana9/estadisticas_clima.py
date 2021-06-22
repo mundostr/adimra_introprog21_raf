@@ -7,10 +7,12 @@ import re
 # un fragmento de datos específicos, pero a diferencia de casos anteriores, el formato de este archivo
 # no es homogéneo, lo cual complica más la búsqueda si se realiza manualmente. En este tipo de situaciones
 # las expresiones regulares son realmente muy cómodas
-archivo = open("estadisticas_clima.txt", "r")
+archivo = open("e:/estadisticas_clima.txt", "r")
 lista = archivo.readlines()
 
 for index, linea in enumerate(lista):
+	# Con esta expresión regular, buscamos una línea específica que comience con SAUCE VIEJO AERO,
+	# contenga luego un tabulador y una P mayúscula.
 	if (re.match("^SAUCE VIEJO AERO\\tP", linea)):
 		datos = linea.removesuffix("\n").split("\t")
 

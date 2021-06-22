@@ -25,10 +25,11 @@ RUTA_BASE = "semana8"
 ARCHIVO_ORIGINAL = "ingresos_diarios_2020.txt"
 ARCHIVO_CONVERTIDO = "ingresos_diarios_2020_saltos.txt"
 ARCHIVO_JSON = "datos_clima_rafaela.json"
+RUTA_ARCHIVO_CLIMA = f"{RUTA_BASE}/{ARCHIVO_JSON}"
 
 import json
 
-archivo = open(RUTA_BASE + "/" + ARCHIVO_JSON, "r")
+archivo = open(RUTA_ARCHIVO_CLIMA, "r")
 datosClima = json.load(archivo)
 archivo.close()
 
