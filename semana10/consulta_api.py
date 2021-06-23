@@ -33,7 +33,6 @@ def filtrarInfoRemota(resultado, formato, separador, expresion):
 		return False
 
 def main():
-	# "https://api.openweathermap.org/data/2.5/find?q=rafaela&mode=json&units=metric&lang=sp&APPID=bbbe84df6ab458740a22a2e0a1eb7663"
 	# "https://httpbin.org/delay/1"
 	consultaRemota = req.get(RUTA_API)
 	resultado = filtrarInfoRemota(consultaRemota, "numerico", "\n", EXPRESION_REGULAR)
