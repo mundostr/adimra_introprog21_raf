@@ -4,7 +4,8 @@ import requests
 # Contenedor general
 raiz = Tk()
 
-URL_API_CLIMA = "https://api.openweathermap.org/data/2.5/find?q=rafaela&mode=json&units=metric&lang=sp&APPID=bbbe84df6ab458740a22a2e0a1eb7663"
+APPI_ID = "" # Acá debe colocarse el id de Openweather. Registrar gratuitamente una cuenta para obtenerlo
+URL_API_CLIMA = f"https://api.openweathermap.org/data/2.5/find?q=rafaela&mode=json&units=metric&lang=sp&APPID={APPI_ID}"
 nombreCiudad = StringVar()
 temperaturaCiudad = StringVar()
 humedadCiudad = StringVar()
